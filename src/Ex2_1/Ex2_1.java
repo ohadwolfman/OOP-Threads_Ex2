@@ -80,7 +80,7 @@ public class Ex2_1 {
     }
 
 
-    public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
+    /*public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
 
         String currentPath = new java.io.File(".").getCanonicalPath();
         //System.out.println("Current dir:" + currentPath);
@@ -110,5 +110,5 @@ public class Ex2_1 {
         long elapsedTime3 = end3 - start3;
         System.out.println("the third took " + elapsedTime3+ " milliseconds");
 
-    }
+    }*/
 }

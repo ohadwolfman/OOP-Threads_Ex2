@@ -46,7 +46,7 @@ public class CustomExecutor {
         executor.gracefullyTerminate();
     }
 
-    public static void main(String[] args) throws InterruptedException, ExecutionException {
+    /*public static void main(String[] args) throws InterruptedException, ExecutionException {
 
         CustomExecutor executor = new CustomExecutor();
 
@@ -84,5 +84,5 @@ public class CustomExecutor {
         }
 
         executor.gracefullyTerminate();
-    }
+    }*/
 }
