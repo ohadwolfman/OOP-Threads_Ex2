@@ -94,21 +94,21 @@ public class Ex2_1 {
         System.out.println("1: " + Ex2_1.getNumOfLines(ans));
         long end = System.currentTimeMillis();
         long elapsedTime = end - start;
-        System.out.println("it took " + elapsedTime);
+        System.out.println("it took " + elapsedTime+ " milliseconds");
 
         long start2 = System.currentTimeMillis();
         int answer = ex2_1.getNumOfLinesThreads(ans);
         System.out.println("2: " + answer);
         long end2 = System.currentTimeMillis();
         long elapsedTime2 = end2 - start2;
-        System.out.println("the second took " + elapsedTime2);
+        System.out.println("the second took " + elapsedTime2+ " milliseconds");
 
         long start3 = System.currentTimeMillis();
         int answer3 = ex2_1.getNumOfLinesThreadPool(ans);
         System.out.println("3: " + answer3);
         long end3 = System.currentTimeMillis();
         long elapsedTime3 = end3 - start3;
-        System.out.println("the third took " + elapsedTime3);
+        System.out.println("the third took " + elapsedTime3+ " milliseconds");
 
     }
 }
