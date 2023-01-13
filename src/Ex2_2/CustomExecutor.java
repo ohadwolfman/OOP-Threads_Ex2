@@ -58,7 +58,7 @@ public class CustomExecutor {
                 for (int i = 1; i <= 10; i++) {
                     sum *= i;
                 }
-                System.out.println("Other completed�successfully");
+                System.out.println("Other completed successfully");
                 return sum;
             }, TaskType.OTHER);
 

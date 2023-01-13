@@ -22,8 +22,15 @@ public class MyThreadPoolExecutor extends ThreadPoolExecutor{
     }
 
     public <V> Future<V> submit(Task<V> task) {
-        if (task == null) throw new NullPointerException();
+        if (task == null)
+            throw new NullPointerException();
         RunnableFuture<V> ftask = newTaskFor(task);
+        int priority = task.getTaskPriority();
+        priorityArray[priority]++;
+        if(priority < maxPriority) {
+            maxPriority = priority;
+        }
+
         execute(ftask);
         return ftask;
     }
@@ -32,20 +39,6 @@ public class MyThreadPoolExecutor extends ThreadPoolExecutor{
     protected void beforeExecute(Thread thread, Runnable run) {
         if (run instanceof CustomFutureTask) {
             CustomFutureTask cft = (CustomFutureTask)run;
-            int priority = cft.getTask().getTaskPriority();
-            priorityArray[priority]++;
-            if(priority < maxPriority) {
-                maxPriority = priority;
-            }
-        }
-        super.beforeExecute(thread, run);
-    }
-
-    @Override
-    protected void afterExecute(Runnable r, Throwable t) {
-        super.afterExecute(r, t);
-        if (r instanceof CustomFutureTask) {
-            CustomFutureTask cft = (CustomFutureTask)r;
             int priority = cft.getTask().getTaskPriority();
             priorityArray[priority]--;
             if(priority == maxPriority && priorityArray[priority] == 0) {
@@ -56,7 +49,9 @@ public class MyThreadPoolExecutor extends ThreadPoolExecutor{
                 maxPriority = i;
             }
         }
+        super.beforeExecute(thread, run);
     }
+
 
     public int getMaxPriority() {
         return maxPriority;
